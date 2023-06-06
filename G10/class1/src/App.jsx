@@ -1,35 +1,29 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import Footer from './components/Footer/Footer'
+import Header from './components/Header/Header'
+import ProductList from './components/ProductList/ProductList'
 
 function App() {
-  const [count, setCount] = useState(0)
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+  const fullName = 'Pero Perov'
+
+  const logEvent = (e) => {
+    console.log(e)
+  }
+
+  const logName = () => console.log(fullName)
+
+  return <main>
+    <Header />
+    <ProductList />
+    <input type="text" value={fullName} placeholder='Add Full Name' />
+    <button disabled={!fullName} type='button' onClick={(e) => logEvent(e)}>Submit</button>
+    <button disabled={!fullName} type='button' onClick={logName}>Submit 2</button>
+    <article className="main__article">This is an article</article>
+    <article style={{ color: 'green' }} >This is another article</article>
+    {/* <footer id='footer'>This is footer</footer> */}
+    <Footer />
+  </main>
 }
 
 export default App
