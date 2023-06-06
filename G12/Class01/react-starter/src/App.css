@@ -1,0 +1,40 @@
+.App .heading {
+  font-size: 30px;
+  font-weight: 600px;
+  text-align: center;
+  background-color: lightblue;
+  margin: 0;
+
+  padding: 30px 10px;
+}
+
+.App p {
+  text-align: center;
+  font-size: 20px;
+  margin: 0;
+  padding: 20px 0;
+}
+
+.App main {
+  min-height: 800px;
+  background-color: lightgoldenrodyellow;
+}
+
+.App .todo {
+  padding: 20px;
+  margin: 20px;
+  background-color: lightgray;
+  border: 2px solid darkgray;
+  text-align: center;
+  font-weight: 600px;
+}
+
+.App ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px;
+}
+
+.App ul li {
+  padding: 20px;
+}
