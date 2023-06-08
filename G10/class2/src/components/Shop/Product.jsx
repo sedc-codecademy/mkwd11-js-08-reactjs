@@ -19,7 +19,9 @@ export default class Product extends React.Component {
                 <p>{this.props.price}</p>
                 <button
                     disabled={!this.props.inStock}
-                    type="button">
+                    type="button"
+                    onClick={() => this.props.addToCart(this.props.id)}
+                >
                         Add to cart
                 </button>
             </li>
@@ -32,5 +34,6 @@ Product.propTypes = {
     name: PropTypes.string,
     color: PropTypes.string,
     price: PropTypes.number,
-    inStock: PropTypes.bool
+    inStock: PropTypes.bool,
+    addToCart: PropTypes.func
 }
