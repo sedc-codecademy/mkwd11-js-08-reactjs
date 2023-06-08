@@ -7,6 +7,7 @@ export default function NavBar({ links }) {
                 {
                     links.map(link => 
                             <NavLink 
+                                key={link.label}
                                 href={link.href}
                                 label={link.label}
                             />)
