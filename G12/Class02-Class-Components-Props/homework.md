@@ -24,5 +24,5 @@
 
 ## Bonus (Only if you want to practice class based state otherwise wait for hooks)
 
-- Using state try to make it so that when the user clicks on a todo it will change from finished to unfinished
+- Using state try to make it so that when the user clicks on a todo it will change from unfinished to finished
 - Make sure when you finish a todo to update the counts at the bottom of the page
