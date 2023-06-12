@@ -1,5 +1,6 @@
 import Button from "../../Components/Button/Button";
 import { CounterClass } from "../../Components/CounterClass/CounterClass";
+import CounterHooks from "../../Components/CounterHooks/CounterHooks";
 import ProductCard from "../../Components/ProductCard/ProductCard";
 import "./ProductPage.css";
 
@@ -42,6 +43,7 @@ function ProductPage() {
         }}
       />
       <CounterClass title="Class Counter" />
+      <CounterHooks title="Hooks Counter" />
     </section>
   );
 }

@@ -1,0 +1,33 @@
+.PersonDetails {
+  width: 40%;
+  border-radius: 3px;
+  background-color: lightgreen;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.PersonDetails .details-container {
+  background-color: whitesmoke;
+  width: 90%;
+  height: 90%;
+  border-radius: 5px;
+}
+
+.PersonDetails .details-container div {
+  font-size: 27px;
+  font-weight: 400;
+  margin: 30px;
+}
+
+.PersonDetails .details-container div strong {
+  font-size: 22px;
+}
+
+.PersonDetails .placeholder-container {
+  font-size: 40px;
+  font-weight: 300;
+  text-align: center;
+  margin-top: 100px;
+}
