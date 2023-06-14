@@ -1,0 +1,10 @@
+.PersonList {
+  list-style: none;
+  border-radius: 3px;
+  font-size: 25px;
+  background-color: rgb(255, 118, 118);
+  width: 35%;
+  margin: 0 15px;
+  padding: 0;
+  padding: 15px 20px;
+}
