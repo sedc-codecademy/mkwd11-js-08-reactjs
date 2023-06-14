@@ -55,6 +55,11 @@ class Products extends Component {
     this.handleFetchProducts();
   }
 
+  //WHEN WE HAVE TWO lifecycle methods
+  //the second one in the hierarchy will overwrite the previous one
+  //componentDidMount() {
+  //  console.log("SECOND COMPONENT DID MOUNT");
+  //}
   render() {
     return (
       <>
