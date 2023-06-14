@@ -4,6 +4,7 @@ const Counter = () => {
   //1. variable for state 2.setter function to change the state; 3. 10 is the default value
   const [count, setCount] = useState(10);
   const [color, setColor] = useState("#dfcf20");
+  const [message, setMessage] = useState("Some message");
 
   const handleIncrement = () => {
     if (count === 20) return;
@@ -20,9 +21,13 @@ const Counter = () => {
   };
 
   /**
-   * create message state and input, and as you type to
+   * create message state and input, and as you type
    * change the state of message. the message state should take the place of the content of p
    */
+
+  const handleChangeMessage = (event) => {
+    setMessage(event.target.value);
+  };
 
   return (
     <div>
@@ -45,12 +50,15 @@ const Counter = () => {
 
       <hr />
       <br />
-      <p style={{ color: color }}>Some message</p>
+      <p style={{ color: color }}>{message}</p>
       <input
         type="color"
         onChange={(event) => handlerChangeColor(event.target.value)}
         value={color || ""}
       />
+
+      <br />
+      <input type="text" onChange={handleChangeMessage} />
     </div>
   );
 };
