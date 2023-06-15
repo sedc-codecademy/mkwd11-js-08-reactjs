@@ -8,7 +8,7 @@ const wrapperStyle = {
 export default function CountryBox({
   name,
   id,
-  capital,
+  capital = "Not available", // setting default value to be shown if capital is undefined
   region,
   subregion,
   flagSrc,
@@ -25,6 +25,7 @@ export default function CountryBox({
         {region} - {subregion}
       </p>
       <img style={{ width: "100%" }} src={flagSrc} alt={flagAlt} />
+      {/* choose which button should be shown */}
       {showAddButton ? (
         <button type="button" onClick={() => addToTrip(id)}>
           Add to trip
