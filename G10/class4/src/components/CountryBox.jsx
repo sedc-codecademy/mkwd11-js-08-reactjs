@@ -7,11 +7,13 @@ const wrapperStyle = {
 
 export default function CountryBox({
   name,
+  id,
   capital,
   region,
   subregion,
   flagSrc,
   flagAlt,
+  addToTrip,
 }) {
   return (
     <div style={wrapperStyle}>
@@ -21,6 +23,9 @@ export default function CountryBox({
         {region} - {subregion}
       </p>
       <img style={{ width: "100%" }} src={flagSrc} alt={flagAlt} />
+      <button type="button" onClick={() => addToTrip(id)}>
+        Add to trip
+      </button>
     </div>
   );
 }
