@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import CountryBox from "./CountryBox";
 
 const wrapperStyle = {
@@ -23,13 +23,24 @@ export default function PlannerContainer() {
   const [countries, setCountries] = useState([]);
   const [tripList, setTripList] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [cost, setCost] = useState(0);
+  const inputRef = useRef(null);
 
   useEffect(() => {
     axios.get("https://restcountries.com/v3.1/all").then(response => {
       console.log(response.data);
       setCountries(response.data);
+      inputRef.current.focus();
     });
   }, []);
+
+  useEffect(() => {
+    const newCost = tripList.reduce((acc, country) => {
+      return acc + Math.round(country.area / 300);
+    }, 1);
+
+    setCost(newCost);
+  }, [tripList]);
 
   const filteredCountries = useMemo(() => {
     return countries.filter(country =>
@@ -54,6 +65,14 @@ export default function PlannerContainer() {
   //   console.log("trip list vo useEffect", tripList);
   // }, [tripList]);
 
+  const removeFromTrip = id => {
+    const countryToRemove = tripList.find(country => country.cca2 === id);
+    setCountries(prevCountries => [countryToRemove, ...prevCountries]);
+    setTripList(prevTripListCountries =>
+      prevTripListCountries.filter(country => country.cca2 !== id)
+    );
+  };
+
   console.log("countries", countries);
 
   return (
@@ -62,6 +81,7 @@ export default function PlannerContainer() {
         <input
           style={{ flexBasis: "100%", height: "50px" }}
           type="search"
+          ref={inputRef}
           placeholder="Search"
           onChange={e => setSearchTerm(e.target.value)}
         />
@@ -76,10 +96,13 @@ export default function PlannerContainer() {
             flagSrc={country.flags.png}
             flagAlt={country.flags.alt}
             addToTrip={addToTrip}
+            removeFromTrip={removeFromTrip}
+            showAddButton={true}
           />
         ))}
       </div>
       <div style={countriesListStyle}>
+        <h3 style={{ flexBasis: "100%" }}>Cost: {cost}$</h3>
         {tripList.map(country => (
           <CountryBox
             key={country.cca2 + "trip-list-country"}
@@ -91,6 +114,8 @@ export default function PlannerContainer() {
             flagSrc={country.flags.png}
             flagAlt={country.flags.alt}
             addToTrip={addToTrip}
+            removeFromTrip={removeFromTrip}
+            showAddButton={false}
           />
         ))}
       </div>

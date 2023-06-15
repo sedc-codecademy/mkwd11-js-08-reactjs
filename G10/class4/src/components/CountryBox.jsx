@@ -14,6 +14,8 @@ export default function CountryBox({
   flagSrc,
   flagAlt,
   addToTrip,
+  removeFromTrip,
+  showAddButton,
 }) {
   return (
     <div style={wrapperStyle}>
@@ -23,9 +25,15 @@ export default function CountryBox({
         {region} - {subregion}
       </p>
       <img style={{ width: "100%" }} src={flagSrc} alt={flagAlt} />
-      <button type="button" onClick={() => addToTrip(id)}>
-        Add to trip
-      </button>
+      {showAddButton ? (
+        <button type="button" onClick={() => addToTrip(id)}>
+          Add to trip
+        </button>
+      ) : (
+        <button type="button" onClick={() => removeFromTrip(id)}>
+          Remove
+        </button>
+      )}
     </div>
   );
 }
