@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import CountryBox from "./CountryBox";
 import DaysCount from "./DaysCount";
+import PassengersList from "./PassengersList";
 
 export default function TripPlan({ tripList, removeFromTrip }) {
   const [cost, setCost] = useState(0); // total cost of the trip
@@ -19,9 +20,14 @@ export default function TripPlan({ tripList, removeFromTrip }) {
     setDaysCount(count);
   }, []);
 
+  if (!tripList?.length) {
+    return <h1>No countries in the list.</h1>;
+  }
+
   return (
     <>
       <h3 style={{ flexBasis: "100%" }}>Cost: {cost}$</h3>
+      <PassengersList />
       <DaysCount
         count={daysCount}
         handleDaysCountChange={handleDaysCountChange}
