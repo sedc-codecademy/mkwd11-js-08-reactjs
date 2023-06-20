@@ -1,8 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import CountryBox from "./CountryBox";
+import DaysCount from "./DaysCount";
 
 export default function TripPlan({ tripList, removeFromTrip }) {
   const [cost, setCost] = useState(0); // total cost of the trip
+  const [daysCount, setDaysCount] = useState(0);
 
   // Update cost on each change of tripList
   useEffect(() => {
@@ -13,9 +15,17 @@ export default function TripPlan({ tripList, removeFromTrip }) {
     setCost(newCost);
   }, [tripList]);
 
+  const handleDaysCountChange = useCallback(count => {
+    setDaysCount(count);
+  }, []);
+
   return (
     <>
       <h3 style={{ flexBasis: "100%" }}>Cost: {cost}$</h3>
+      <DaysCount
+        count={daysCount}
+        handleDaysCountChange={handleDaysCountChange}
+      />
       {tripList.map(country => (
         <CountryBox
           key={country.cca2 + "trip-list-country"} // use unique values for KEY

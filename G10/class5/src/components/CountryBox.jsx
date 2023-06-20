@@ -1,3 +1,6 @@
+import AddToTrip from "./Buttons/AddToTrip";
+import RemoveFromTrip from "./Buttons/RemoveFromTrip";
+
 const wrapperStyle = {
   maxWidth: "150px",
   margin: "5px",
@@ -27,13 +30,9 @@ export default function CountryBox({
       <img style={{ width: "100%" }} src={flagSrc} alt={flagAlt} />
       {/* choose which button should be shown */}
       {showAddButton ? (
-        <button type="button" onClick={() => addToTrip(id)}>
-          Add to trip
-        </button>
+        <AddToTrip addToTrip={addToTrip} id={id} />
       ) : (
-        <button type="button" onClick={() => removeFromTrip(id)}>
-          Remove
-        </button>
+        <RemoveFromTrip removeFromTrip={removeFromTrip} id={id} />
       )}
     </div>
   );
