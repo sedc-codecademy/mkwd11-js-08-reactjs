@@ -4,22 +4,21 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Home } from "./Pages/Home/Home";
 import { About } from "./Pages/About/About";
 import { Products } from "./Pages/Products/Products";
+import { SingleProduct } from "./Pages/SingleProduct/SingleProduct";
 
 function App() {
   return (
     <>
       <BrowserRouter>
         <Header />
-        {/* Between ROUTES we put all the routes we gonna have */}
         <Routes>
-          {/* DEFAULT ROUTE localhost:5173*/}
           <Route path="/" element={<Home />} />
-          {/*  ROUTE localhost:5173/about*/}
           <Route path="/about" element={<About />} />
-          {/*  ROUTE localhost:5173/products*/}
           <Route path="/products" element={<Products />} />
 
-          {/* When we use the wildcard it must be at the bottom */}
+          {/* PATH PARAM ROUTE */}
+          <Route path="/product/:id" element={<SingleProduct />} />
+
           <Route
             path="*"
             element={
