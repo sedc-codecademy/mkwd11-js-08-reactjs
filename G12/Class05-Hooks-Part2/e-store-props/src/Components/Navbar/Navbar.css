@@ -1,20 +1,29 @@
 .Navbar ul {
-  list-style: none;
   display: flex;
-  gap: 20px;
-  font-size: 18px;
+  list-style: none;
+  padding: 10px 0;
+  text-decoration: none;
 }
 
-.Navbar ul a {
+.Navbar ul li {
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 24px;
+  font-weight: 300;
+}
+
+.Navbar ul li a {
   text-decoration: none;
   color: black;
-  transition: 0.2s ease-in-out;
+  padding: 7px;
+  transition: 0.2s ease-in;
 }
 
-.Navbar ul a:hover {
-  color: aliceblue;
+.Navbar ul li a:hover {
+  color: navy;
 }
 
-.Navbar .active {
-  color: rgb(131, 8, 8);
+.active {
+  background-color: lightseagreen;
+  border-radius: 4px;
 }

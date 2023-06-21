@@ -12,7 +12,12 @@ function Navbar(props) {
         {navbarLinkData.map((linkData, i) => (
           <li key={linkData.link + i}>
             {/* <a href={linkData.link}>{linkData.text}</a> */}
-            <NavLink to={linkData.link}>{linkData.text}</NavLink>
+            <NavLink to={linkData.link}>
+              {linkData.text}{" "}
+              {linkData.link === "/cart" && props.cartCount > 0 && (
+                <strong>{props.cartCount}</strong>
+              )}
+            </NavLink>
           </li>
         ))}
       </ul>

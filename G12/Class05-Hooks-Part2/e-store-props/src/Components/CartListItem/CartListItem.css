@@ -1,0 +1,22 @@
+.CartListItem {
+  border-radius: 4px;
+  background-color: whitesmoke;
+  margin: 10px 0;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.CartListItem span {
+  display: flex;
+  font-weight: 600;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.CartListItem:hover {
+  cursor: pointer;
+  transition: 0.2s ease-in;
+  background-color: rgb(134, 199, 255);
+}
