@@ -1,0 +1,27 @@
+.category {
+  border: 1px solid salmon;
+  width: 180px;
+  padding: 20px;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  text-transform: capitalize;
+  background-color: white;
+}
+
+.categories {
+  display: flex;
+  justify-content: space-around;
+}
+
+.active-category {
+  background-color: rgb(250, 170, 162);
+}
+.productsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  justify-content: space-around;
+  gap: 20px;
+}
