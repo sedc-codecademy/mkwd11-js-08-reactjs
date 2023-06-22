@@ -1,6 +1,7 @@
 import Layout from "../../components/Layout";
 import AddsList from "../../components/AddsList";
 import AddDetails from "../../components/AddDetails";
+import AddForm from "../../components/AddForm";
 
 const GeneralRoutes = {
   path: "/",
@@ -13,6 +14,10 @@ const GeneralRoutes = {
     {
       path: "adds/:id",
       element: <AddDetails />,
+    },
+    {
+      path: "form",
+      element: <AddForm />,
     },
     {
       path: "*",
