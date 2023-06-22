@@ -10,6 +10,9 @@ const AddItem = ({ id, title, userId, body }) => {
           <Link to={`/adds/${id}`} className="btn btn-primary">
             See more
           </Link>
+          <Link to={`/form/${id}`} className="btn btn-warning">
+            Edit
+          </Link>
         </div>
       </div>
     </div>
