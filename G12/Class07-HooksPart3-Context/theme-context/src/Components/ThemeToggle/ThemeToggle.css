@@ -1,0 +1,17 @@
+.ThemeToggle {
+  font-weight: 400;
+  border: 2px solid darkgray;
+  border-radius: 4px;
+  padding: 10px;
+  background-color: aliceblue;
+}
+
+.ThemeToggle span {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.ThemeToggle select {
+  font-size: 20px;
+  padding: 3px;
+}

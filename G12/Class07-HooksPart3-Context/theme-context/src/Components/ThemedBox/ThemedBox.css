@@ -1,0 +1,14 @@
+.ThemedBox {
+  width: 80%;
+  border-radius: 3px;
+  font-size: 35px;
+  font-weight: 300;
+  min-height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ThemedBox h1 {
+  font-weight: 300;
+}
