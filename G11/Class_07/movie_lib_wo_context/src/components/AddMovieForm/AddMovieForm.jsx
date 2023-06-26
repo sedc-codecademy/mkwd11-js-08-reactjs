@@ -1,23 +1,23 @@
-export const AddMovieForm = ({
-  handleChangeMovieTitle,
-  handleChangeMovieGenre,
-  handleAddMovie,
-}) => {
+import { useContext } from "react";
+import { MoviesContext } from "../../context/MovieContext";
+
+export const AddMovieForm = () => {
+  const context = useContext(MoviesContext);
   return (
     <div>
       <form>
         <input
           type="text"
           placeholder="Movie title"
-          onChange={handleChangeMovieTitle}
+          onChange={context.handleChangeMovieTitle}
         />
         <input
           type="text"
           placeholder="Movie genre"
-          onChange={handleChangeMovieGenre}
+          onChange={context.handleChangeMovieGenre}
         />
 
-        <button onClick={handleAddMovie}>Add Movie</button>
+        <button onClick={context.handleAddMovie}>Add Movie</button>
       </form>
     </div>
   );

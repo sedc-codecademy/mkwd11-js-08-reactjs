@@ -1,0 +1,19 @@
+.navigation {
+  background-color: beige;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 50px;
+}
+
+.navlinks {
+  list-style: none;
+  display: flex;
+  width: 40%;
+  padding: 10px;
+  justify-content: space-around;
+}
+
+.navlinks > li {
+  cursor: pointer;
+}
