@@ -1,32 +1,24 @@
-import { useState, useEffect } from "react";
 import { ProductCard } from "../../Components/ProductsCard/ProductCard";
+import { useContext } from "react";
+import { ProductsContext } from "../../context/ProductsContext";
+import { useEffect } from "react";
+import { makeApiCall } from "../../utils/fetchProducts";
 
 export const Products = () => {
   const URL = "https://fakestoreapi.com/products?limit=10";
 
-  const [products, setProducts] = useState([]);
-  const [errorMessage, setErrorMessage] = useState("");
+  const { products, handleAddProducts } = useContext(ProductsContext);
 
-  const fetchProducts = async () => {
-    try {
-      const response = await fetch(URL);
-      const result = await response.json();
-      console.log("RESULT:", result);
-      setProducts(result);
-    } catch (error) {
-      setErrorMessage(error.message);
-      throw new Error(error);
-    }
-  };
-
-  // EXECUTES ON FIRST RENDER
   useEffect(() => {
-    /**
-     * DO NOT MAKE API CALL IF WE HAVE ELEMENTS
-     * HERE JUST TO PREVENT CORS BLOCK FROM FAKE-STORE-API
-     */
     if (products.length > 0) return;
-    fetchProducts();
+
+    makeApiCall(URL)
+      .then((results) => {
+        handleAddProducts(results);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }, []);
 
   return (
