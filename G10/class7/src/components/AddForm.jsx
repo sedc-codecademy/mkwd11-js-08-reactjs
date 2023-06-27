@@ -1,6 +1,7 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useContext, useEffect, useMemo, useState } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
+import { AddsContext } from "../common/context/AddsContext";
 
 // errors = {
 //   title: "Title is required",
@@ -9,6 +10,8 @@ import { useNavigate, useParams } from "react-router-dom";
 
 const AddForm = () => {
   const { id } = useParams();
+
+  const { addAdvertisement, updateAdvertisement } = useContext(AddsContext);
 
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
@@ -38,17 +41,25 @@ const AddForm = () => {
     setErrors({});
 
     if (!isEditing) {
-      await axios.post("https://jsonplaceholder.typicode.com/posts", {
-        title,
-        body,
-        userId: 1,
-      });
+      const response = await axios.post(
+        "https://jsonplaceholder.typicode.com/posts",
+        {
+          title,
+          body,
+          userId: 1,
+        }
+      );
+      addAdvertisement(response.data);
     } else {
-      await axios.put(`https://jsonplaceholder.typicode.com/posts/${id}`, {
-        title,
-        body,
-        userId: 1,
-      });
+      const response = await axios.put(
+        `https://jsonplaceholder.typicode.com/posts/${id}`,
+        {
+          title,
+          body,
+          userId: 1,
+        }
+      );
+      updateAdvertisement(response.data);
     }
 
     navigate("/");

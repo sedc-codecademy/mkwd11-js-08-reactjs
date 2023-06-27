@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import DeleteAdd from "./DeleteAdd";
 
 const AddItem = ({ id, title, userId, body }) => {
   return (
@@ -13,6 +14,7 @@ const AddItem = ({ id, title, userId, body }) => {
           <Link to={`/form/${id}`} className="btn btn-warning">
             Edit
           </Link>
+          <DeleteAdd id={id} />
         </div>
       </div>
     </div>
