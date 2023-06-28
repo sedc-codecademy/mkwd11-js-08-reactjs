@@ -6,7 +6,6 @@ import CartPage from "./Pages/CartPage/CartPage";
 import NotFoundPage from "./Pages/NotFoundPage/NotFoundPage";
 import ProductsPage from "./Pages/ProductsPage/ProductsPage";
 import { Routes, Route, Navigate } from "react-router-dom";
-import productsMockData from "./data/products.json";
 import ProductDetailsPage from "./Pages/ProductDetailsPage/ProductDetailsPage";
 
 function App() {

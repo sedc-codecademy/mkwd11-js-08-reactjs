@@ -1,0 +1,28 @@
+.TodoList {
+  border-radius: 3px;
+  font-size: 25px;
+  width: 35%;
+  margin: 15px;
+  padding: 0;
+  padding: 15px 20px;
+  background-color: rgb(95, 209, 120);
+}
+
+.TodoList ul {
+  padding: 0;
+  list-style: none;
+}
+
+.TodoList h3 {
+  text-align: center;
+  margin: 0px;
+}
+
+.TodoList div {
+  background-color: aliceblue;
+  width: auto;
+  text-align: center;
+  padding: 10px;
+  margin: 10px 0px;
+  border-radius: 4px;
+}

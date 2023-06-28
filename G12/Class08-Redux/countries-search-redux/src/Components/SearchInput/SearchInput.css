@@ -1,0 +1,21 @@
+.SearchInput {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 35%;
+  background-color: rgb(53, 127, 255);
+  border-radius: 3px;
+  font-size: 25px;
+  margin: 15px;
+
+  padding: 15px 20px;
+  padding-bottom: 25px;
+}
+
+.SearchInput input {
+  font-size: 22px;
+  margin: 10px 0;
+  padding: 10px 5px;
+  border: 2px solid lightyellow;
+  border-radius: 4px;
+}
