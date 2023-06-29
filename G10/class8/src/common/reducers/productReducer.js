@@ -16,6 +16,7 @@ const productReducer = (state = initialState, action) => {
       return {
         ...state,
         cartItems: [
+          ...state.cartItems,
           state.products.find(product => product.id === action.payload),
         ],
       };
