@@ -1,4 +1,5 @@
 import Layout from "../../components/Layout/Layout";
+import Cart from "../../components/Shop/Cart";
 import Shop from "../../components/Shop/Shop";
 
 const GeneralRoutes = {
@@ -8,6 +9,10 @@ const GeneralRoutes = {
     {
       path: "/",
       element: <Shop />,
+    },
+    {
+      path: "/cart",
+      element: <Cart />,
     },
   ],
 };
