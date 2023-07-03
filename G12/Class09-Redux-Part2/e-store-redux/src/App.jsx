@@ -7,11 +7,30 @@ import NotFoundPage from "./Pages/NotFoundPage/NotFoundPage";
 import ProductsPage from "./Pages/ProductsPage/ProductsPage";
 import { Routes, Route, Navigate } from "react-router-dom";
 import ProductDetailsPage from "./Pages/ProductDetailsPage/ProductDetailsPage";
+import { useDispatch } from "react-redux";
+import {
+  fetchProducts,
+  loadProductsFromLocalStorage,
+} from "./state/slices/productsSlice";
 
 function App() {
-  const [products, setProducts] = useState([]);
+  const dispatch = useDispatch();
 
-  //  curriedFunc()()
+  useEffect(() => {
+    // If we have products in local storage load them into state
+
+    const productsData = localStorage.getItem("products");
+
+    if (!productsData) {
+      dispatch(fetchProducts());
+      return;
+    }
+
+    const products = JSON.parse(productsData);
+
+    dispatch(loadProductsFromLocalStorage(products));
+    // If we don't have fetch them from the backend
+  }, []);
 
   const test = test => {
     console.log(test);

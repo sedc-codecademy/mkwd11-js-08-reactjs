@@ -9,6 +9,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import ProductDetailsPage from "./Pages/ProductDetailsPage/ProductDetailsPage";
 
 function App() {
+  // useState uses array as a return because when we destructure it we can name the elements any way we want which gives us flexible state in the process
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -24,6 +25,7 @@ function App() {
           product.inCart = true;
           return product;
         }
+        // If the callback in the map higher order function doesn't return anything then it will add an undefined element in the resulting array, this is a bad practice so always and i mean always try to return something from a callback in a map
         return product;
       });
     });
