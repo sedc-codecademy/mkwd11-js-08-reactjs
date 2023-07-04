@@ -1,14 +1,19 @@
 import { useMemo } from "react";
 import { useLocation } from "react-router";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Header = () => {
   const location = useLocation();
+  const navigate = useNavigate();
 
   const activeLinkCart = useMemo(
     () => location.pathname.includes("/cart"),
     [location.pathname]
   );
+
+  const handleLogin = () => {
+    navigate("/login");
+  };
 
   return (
     <header>
@@ -41,6 +46,11 @@ const Header = () => {
                 >
                   Cart
                 </Link>
+              </li>
+              <li>
+                <button className="btn btn-secondary" onClick={handleLogin}>
+                  Login
+                </button>
               </li>
             </ul>
           </div>

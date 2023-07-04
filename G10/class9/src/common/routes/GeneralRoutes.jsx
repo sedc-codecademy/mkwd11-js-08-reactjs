@@ -1,6 +1,7 @@
 import Layout from "../../components/Layout/Layout";
 import Cart from "../../components/Shop/Cart";
 import Shop from "../../components/Shop/Shop";
+import ProtectedRoute from "./ProtectedRoute";
 
 const GeneralRoutes = {
   path: "/",
@@ -12,7 +13,11 @@ const GeneralRoutes = {
     },
     {
       path: "/cart",
-      element: <Cart />,
+      element: (
+        <ProtectedRoute>
+          <Cart />
+        </ProtectedRoute>
+      ),
     },
   ],
 };
