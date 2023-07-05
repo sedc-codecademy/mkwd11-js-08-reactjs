@@ -6,16 +6,17 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { useDispatch } from "react-redux";
+import { addToCart, removeFromCart } from "../../store/slices/cartSlice";
 
-export const ProductCard = ({ product }) => {
+export const ProductCard = ({ product, isAddToCart = false }) => {
   const dispatch = useDispatch();
 
   const handleAddToCart = (productToAdd) => {
-    dispatch({ type: "ADD_TO_CART", payload: productToAdd });
+    dispatch(addToCart(productToAdd));
   };
 
   const handleRemoveFromCart = (cartId) => {
-    dispatch({ type: "REMOVE_FROM_CART", payload: cartId });
+    dispatch(removeFromCart(cartId));
   };
 
   return (
@@ -34,9 +35,12 @@ export const ProductCard = ({ product }) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button onClick={() => handleAddToCart(product)} size="small">
-          Add to Cart
-        </Button>
+        {isAddToCart && (
+          <Button onClick={() => handleAddToCart(product)} size="small">
+            Add to Cart
+          </Button>
+        )}
+
         <Button onClick={() => handleRemoveFromCart(product.id)} size="small">
           Remove from Cart
         </Button>

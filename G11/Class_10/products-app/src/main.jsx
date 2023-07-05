@@ -12,3 +12,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     </Provider>
   </React.StrictMode>
 );
+
+// LIBRARY FOR TESTING IN VITE
+// npm install -D vitest jsdom @testing-library/react @testing-library/jest-dom

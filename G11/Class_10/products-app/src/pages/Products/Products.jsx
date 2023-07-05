@@ -1,30 +1,20 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { fetchProducts } from "../../store/reducers/productsReducer";
-import store from "../../store";
+import { fetchProducts } from "../../store/slices/productsSlice";
 import { ProductsList } from "../../components/ProductsList/ProductList";
-import { Container } from "@mui/material";
+import { Title, MyCostumContainer } from "./Products.styles";
 
 export const Products = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // dispatch(() => fetchProducts(dispatch, store.getState));
-
-    // same as above, when providing reference
     dispatch(fetchProducts);
   }, []);
+
   return (
-    <Container
-      sx={{
-        display: "flex",
-        flexWrap: "wrap",
-        flexDirection: "row",
-        justifyContent: "space-around",
-        gap: "20px",
-      }}
-    >
+    <MyCostumContainer>
+      <Title>Products List:</Title>
       <ProductsList />
-    </Container>
+    </MyCostumContainer>
   );
 };
