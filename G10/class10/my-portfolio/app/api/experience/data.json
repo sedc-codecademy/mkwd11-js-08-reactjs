@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "position": "Intern",
+    "company": "Google"
+  },
+  {
+    "id": 2,
+    "position": "Junior Developer",
+    "company": "Facebook"
+  },
+  {
+    "id": 3,
+    "position": "Intermediate Developer",
+    "company": "Spotify"
+  }
+]
